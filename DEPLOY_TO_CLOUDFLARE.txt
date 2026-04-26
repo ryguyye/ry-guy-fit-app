@@ -1,0 +1,119 @@
+================================================================
+ RyFit PWA - Deploy to Cloudflare Pages
+ (Free hosting — your app becomes installable on iPhone/Android)
+================================================================
+
+PREREQUISITES
+  - ryfit-app pushed to GitHub at: https://github.com/ryguyye/ryfit-app
+  - Free Cloudflare account (sign up at cloudflare.com)
+
+================================================================
+ STEP-BY-STEP DEPLOYMENT
+================================================================
+
+STEP 1 — Sign up / Log in to Cloudflare
+  Go to: https://pages.cloudflare.com
+  Click "Sign Up" (free — no credit card needed)
+  Or log in if you already have an account.
+
+STEP 2 — Create a new Pages project
+  a. In the Cloudflare dashboard, click "Workers & Pages" in the sidebar
+  b. Click the "Pages" tab
+  c. Click "Create a project"
+  d. Select "Connect to Git"
+
+STEP 3 — Connect your GitHub account
+  a. Click "Connect GitHub"
+  b. Authorize Cloudflare to access your GitHub account
+  c. You may need to install the Cloudflare Pages GitHub App
+     - Click "Add account" → select your account (ryguyye)
+     - Choose "Only select repositories" → pick "ryfit-app"
+     - Click "Install & Authorize"
+
+STEP 4 — Select your repository
+  a. You should now see "ryguyye/ryfit-app" in the list
+  b. Click on it, then click "Begin setup"
+
+STEP 5 — Configure build settings
+  Fill in these exact values:
+
+  Project name:          ryfit-app
+  Production branch:     main
+  Framework preset:      Vite
+  Build command:         npm run build
+  Build output directory: dist
+  Root directory:        (leave blank)
+
+  Environment variables: (none needed for basic setup)
+
+STEP 6 — Deploy!
+  Click "Save and Deploy"
+  Cloudflare will:
+    1. Pull your code from GitHub
+    2. Run "npm run build"
+    3. Deploy the dist/ folder globally
+
+  This takes about 1-2 minutes.
+
+STEP 7 — Your app is live!
+  Your URL will be: https://ryfit-app.pages.dev
+  (Or a similar auto-generated URL shown in the dashboard)
+
+  Every time you push to GitHub, Cloudflare auto-rebuilds!
+
+================================================================
+ INSTALL ON iPHONE (Add to Home Screen)
+================================================================
+
+  1. Open Safari on your iPhone
+     (Must be Safari — Chrome on iOS won't show the Add prompt)
+
+  2. Go to: https://ryfit-app.pages.dev
+
+  3. Tap the Share button (square with arrow pointing up)
+     at the bottom of the screen
+
+  4. Scroll down and tap "Add to Home Screen"
+
+  5. Name it "RyFit" and tap "Add"
+
+  The app icon will appear on your home screen and launches
+  fullscreen like a native app — no browser chrome!
+
+================================================================
+ INSTALL ON ANDROID
+================================================================
+
+  1. Open Chrome on Android
+  2. Go to: https://ryfit-app.pages.dev
+  3. Tap the 3-dot menu → "Add to Home screen"
+  4. Or wait for the "Install app" banner to appear automatically
+
+================================================================
+ FUTURE UPDATES
+================================================================
+
+  To update the app after making changes:
+    git add .
+    git commit -m "Your update description"
+    git push
+
+  Cloudflare Pages detects the push and redeploys automatically.
+  Updates go live in ~1 minute.
+
+================================================================
+ CUSTOM DOMAIN (Optional — Free)
+================================================================
+
+  If you own a domain (e.g. ryfit.app):
+  1. In Cloudflare Pages → your project → "Custom domains"
+  2. Click "Set up a custom domain"
+  3. Enter your domain and follow DNS instructions
+
+================================================================
+ GITHUB REPO URL
+  https://github.com/ryguyye/ryfit-app
+
+ CLOUDFLARE PAGES URL (after deployment)
+  https://ryfit-app.pages.dev
+================================================================
